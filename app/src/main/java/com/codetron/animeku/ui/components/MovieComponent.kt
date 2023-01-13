@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -44,30 +45,32 @@ fun AnimeMovieItem(modifier: Modifier = Modifier, model: MovieItem) {
 
         Spacer(modifier = Modifier.width(16.dp))
 
-        Text(
-            model.title,
-            style = MaterialTheme.typography.h5.copy(
-                color = Blue,
-                fontSize = 16.sp,
-            ),
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier
-                .align(Alignment.CenterVertically)
-                .fillMaxWidth()
-        )
+        Column{
+            Text(
+                model.title,
+                style = MaterialTheme.typography.h5.copy(
+                    color = Blue,
+                    fontSize = 16.sp,
+                ),
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.fillMaxWidth()
+            )
 
-        Text(
-            text = stringResource(
-                id = R.string.format_item,
-                model.type,
-                model.episodes.toString(),
-                model.score.toString(),
-                model.members.toString(),
-            ), modifier = Modifier
-                .align(Alignment.CenterVertically)
-                .fillMaxWidth()
-        )
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Text(
+                text = stringResource(
+                    id = R.string.format_item,
+                    model.type,
+                    model.episodes.toString(),
+                    model.score.toString(),
+                    model.members.toString(),
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+            )
+        }
     }
 }
 

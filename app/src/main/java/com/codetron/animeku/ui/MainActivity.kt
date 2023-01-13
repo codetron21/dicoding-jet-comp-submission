@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.codetron.animeku.router.ScreenPath
+import com.codetron.animeku.ui.screen.favorite.FavoriteScreen
 import com.codetron.animeku.ui.screen.home.HomeScreen
 import com.codetron.animeku.ui.screen.search.SearchScreen
 import com.codetron.animeku.ui.screen.splash.SplashScreen
@@ -28,8 +29,12 @@ class MainActivity : ComponentActivity() {
                         HomeScreen(navController = navController)
                     }
 
-                    composable(ScreenPath.search){
-                        SearchScreen(navController=navController)
+                    composable(ScreenPath.search) {
+                        SearchScreen(navController = navController)
+                    }
+
+                    composable(ScreenPath.favorite) {
+                        FavoriteScreen(navController = navController)
                     }
                 }
             }
