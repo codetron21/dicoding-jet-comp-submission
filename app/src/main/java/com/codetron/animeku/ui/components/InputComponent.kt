@@ -3,6 +3,7 @@ package com.codetron.animeku.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -67,6 +68,7 @@ fun SearchInput(
         ),
         modifier = modifier
             .fillMaxWidth()
+            .height(36.dp)
             .clickable { onClick?.invoke() },
     )
 }

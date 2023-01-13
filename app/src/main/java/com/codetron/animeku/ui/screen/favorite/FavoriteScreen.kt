@@ -47,7 +47,7 @@ fun FavoriteScreen(
                 }
             )
 
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = modifier.width(16.dp))
 
             Text(
                 text = stringResource(id = R.string.favorite_movie),

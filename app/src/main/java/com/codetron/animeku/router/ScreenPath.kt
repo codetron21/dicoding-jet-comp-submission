@@ -6,4 +6,5 @@ object ScreenPath {
     const val search = "/search"
     const val favorite = "/favorite"
     const val detail = "/detail"
+    const val about = "/about"
 }

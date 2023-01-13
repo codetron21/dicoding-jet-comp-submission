@@ -4,4 +4,8 @@
     <string name="format_item">%s, %s eps, scored %s, %s members</string>
     <string name="general_error">Something gone wrong</string>
     <string name="favorite_movie">Favorite Anime</string>
+    <string name="about">About</string>
+    <string name="user_name">Adadua karunia putera</string>
+    <string name="user_email">codetronclan@gmail.com</string>
+    <string name="about_screen">About screen</string>
 </resources>
