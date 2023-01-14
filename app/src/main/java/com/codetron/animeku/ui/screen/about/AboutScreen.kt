@@ -59,7 +59,7 @@ fun AboutScreen(
                 }
             )
 
-            Spacer(modifier = modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(16.dp))
 
             Text(
                 text = stringResource(id = R.string.about),

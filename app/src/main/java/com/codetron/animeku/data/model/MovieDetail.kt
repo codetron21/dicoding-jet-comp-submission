@@ -1,7 +1,7 @@
 package com.codetron.animeku.data.model
 
 data class MovieDetail(
-    val malId: Int,
+    val id: Int,
     val title: String,
     val type: String,
     val episodes: Int,

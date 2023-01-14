@@ -10,6 +10,7 @@ import com.codetron.animeku.ui.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 
 
@@ -25,6 +26,7 @@ class SearchViewModel(
     fun searchMovies() = viewModelScope.launch {
         _movies.emit(UiState.Loading)
         repository.searchMovies(query.value)
+            .distinctUntilChanged()
             .debounce(500L)
             .collect { result ->
                 result

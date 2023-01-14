@@ -8,4 +8,17 @@
     <string name="user_email">codetronclan@gmail.com</string>
     <string name="about_screen">About screen</string>
     <string name="no_movies">Anime tidak ada</string>
+    <string name="label_type">Type</string>
+    <string name="label_episodes">Episodes</string>
+    <string name="label_duration">Duration</string>
+    <string name="label_rating">Rating</string>
+    <string name="label_rank">Rank</string>
+    <string name="label_status">Status</string>
+    <string name="label_aired">Aired</string>
+    <string name="label_score">Score</string>
+    <string name="label_members">Members</string>
+    <string name="label_scored_by">Scored by</string>
+    <string name="description">Description</string>
+    <string name="info">Information</string>
+    <string name="format_aired">%s to %s</string>
 </resources>

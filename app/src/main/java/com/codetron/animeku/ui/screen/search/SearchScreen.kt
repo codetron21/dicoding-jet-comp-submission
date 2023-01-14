@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.codetron.animeku.R
+import com.codetron.animeku.router.ScreenPath
 import com.codetron.animeku.ui.UiState
 import com.codetron.animeku.ui.components.AnimeMovieItem
 import com.codetron.animeku.ui.components.SearchInput
@@ -54,12 +55,12 @@ fun SearchScreen(
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colors.background)
-            .padding(16.dp)
     ) {
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth()
+                .padding(16.dp),
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_back),
@@ -86,8 +87,6 @@ fun SearchScreen(
                 })
             )
         }
-
-        Spacer(modifier = Modifier.height(16.dp))
 
         Box(modifier = Modifier.fillMaxSize()) {
             when (movieState) {
@@ -119,7 +118,13 @@ fun SearchScreen(
                     }
                     LazyColumn {
                         items(data, key = { it.id }) { anime ->
-                            AnimeMovieItem(model = anime)
+                            AnimeMovieItem(model = anime, modifier = Modifier.clickable {
+                                navController.navigate(
+                                    ScreenPath.detail + ScreenPath.addBackSlash(
+                                        anime.id.toString()
+                                    )
+                                )
+                            })
                         }
                     }
                 }

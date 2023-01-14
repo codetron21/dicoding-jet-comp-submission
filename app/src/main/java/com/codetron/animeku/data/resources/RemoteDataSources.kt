@@ -30,7 +30,19 @@ class RemoteDataSources(
     }
 
     override fun getDetailMovie(id: Int): Flow<HandleResponse<MovieDetailResponse>> {
-        return flow { }
+        return flow {
+            val response = service.getDetailAnime(id)
+
+            if (!response.isSuccessful) {
+                val errorResponse = response.errorBody().getErrorResponse()
+                emit(HandleResponse(isError = true, errorMessage = errorResponse.message))
+                return@flow
+            }
+
+            emit(HandleResponse(data = response.body()?.data, isError = false))
+        }.catch {
+            emit(HandleResponse(data = null, isError = true))
+        }
     }
 
     override fun searchMovies(query: String?): Flow<HandleResponse<List<MovieItemResponse>>> {

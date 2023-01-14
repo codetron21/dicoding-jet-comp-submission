@@ -10,15 +10,15 @@ import retrofit2.http.Query
 
 interface JikanApiService {
 
-    @GET("/v4/top/anime")
+    @GET("top/anime")
     suspend fun getTopAnime(): Response<WrapperResponse<List<MovieItemResponse>>>
 
-    @GET("/v4/anime/{id}")
-    suspend fun detailAnime(
+    @GET("anime/{id}")
+    suspend fun getDetailAnime(
         @Path("id") id: Int
     ): Response<WrapperResponse<MovieDetailResponse>>
 
-    @GET("/v4/anime")
+    @GET("anime")
     suspend fun searchAnime(
         @Query("q") query: String
     ): Response<WrapperResponse<List<MovieItemResponse>>>

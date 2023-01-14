@@ -29,8 +29,6 @@ fun AnimeMovieItem(modifier: Modifier = Modifier, model: MovieItem) {
         modifier = modifier
             .fillMaxWidth()
             .height(120.dp)
-            .clip(RoundedCornerShape(4.dp))
-            .background(White)
             .padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
         AsyncImage(

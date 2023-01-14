@@ -11,5 +11,4 @@ object RepositoryModule {
         single<IDataRepository> { DataRepository(get()) }
     }
 
-
 }
