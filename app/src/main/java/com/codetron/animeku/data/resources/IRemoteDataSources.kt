@@ -11,4 +11,6 @@ interface IRemoteDataSources {
 
     fun getDetailMovie(id: Int): Flow<HandleResponse<MovieDetailResponse>>
 
+    fun searchMovies(query:String?):Flow<HandleResponse<List<MovieItemResponse>>>
+
 }

@@ -36,4 +36,8 @@ data class MovieDetailResponse(
 data class AiredResponse(
     @SerializedName("from") val from: String? = null,
     @SerializedName("to") val to: String? = null,
-)
+) {
+    override fun toString(): String {
+        return "$from,$to"
+    }
+}

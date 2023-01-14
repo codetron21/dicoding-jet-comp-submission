@@ -8,7 +8,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -113,24 +112,16 @@ fun HomeScreen(
                     val data = (movieState as UiState.Success).data
                     LazyColumn(state = listState) {
                         items(data, key = { it.id }) { anime ->
-                            AnimeMovieItem(model = anime)
+                            AnimeMovieItem(model = anime, modifier = Modifier.clickable {
+                                navController.navigate(
+                                    ScreenPath.detail + ScreenPath.addBackSlash(
+                                        anime.id.toString()
+                                    )
+                                )
+                            })
                         }
                     }
                 }
-            }
-
-            FloatingActionButton(
-                onClick = { navController.navigate(ScreenPath.favorite) },
-                backgroundColor = MaterialTheme.colors.primary,
-                modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(16.dp)
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.ic_favorite),
-                    colorFilter = ColorFilter.tint(Color.White),
-                    contentDescription = null
-                )
             }
         }
     }

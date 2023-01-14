@@ -19,4 +19,7 @@ class DataRepository(
         return flow { }
     }
 
+    override fun searchMovies(query: String?): Flow<Result<List<MovieItemResponse>>> {
+        return sources.searchMovies(query).toResult()
+    }
 }

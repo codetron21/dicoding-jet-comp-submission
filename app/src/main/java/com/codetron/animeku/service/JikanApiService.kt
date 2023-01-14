@@ -6,6 +6,7 @@ import com.codetron.animeku.data.response.WrapperResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface JikanApiService {
 
@@ -16,5 +17,10 @@ interface JikanApiService {
     suspend fun detailAnime(
         @Path("id") id: Int
     ): Response<WrapperResponse<MovieDetailResponse>>
+
+    @GET("/v4/anime")
+    suspend fun searchAnime(
+        @Query("q") query: String
+    ): Response<WrapperResponse<List<MovieItemResponse>>>
 
 }

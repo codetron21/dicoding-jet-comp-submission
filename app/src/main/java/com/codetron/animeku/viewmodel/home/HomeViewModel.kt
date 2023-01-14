@@ -15,7 +15,7 @@ class HomeViewModel(
     private val repository: IDataRepository,
 ) : ViewModel() {
 
-    private val _movies = MutableStateFlow<UiState<List<MovieItem>>>(UiState.Loading)
+    private val _movies = MutableStateFlow<UiState<List<MovieItem>>>(UiState.Success(emptyList()))
     val movies: StateFlow<UiState<List<MovieItem>>> get() = _movies
 
     fun getTopMovies() = viewModelScope.launch {

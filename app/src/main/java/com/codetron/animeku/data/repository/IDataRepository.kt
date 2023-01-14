@@ -10,4 +10,6 @@ interface IDataRepository {
 
     fun getDetailMovie(id: Int): Flow<Result<MovieDetailResponse>>
 
+    fun searchMovies(query: String?): Flow<Result<List<MovieItemResponse>>>
+
 }

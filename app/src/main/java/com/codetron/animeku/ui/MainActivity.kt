@@ -3,12 +3,14 @@ package com.codetron.animeku.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.codetron.animeku.router.ScreenPath
 import com.codetron.animeku.ui.screen.about.AboutScreen
-import com.codetron.animeku.ui.screen.favorite.FavoriteScreen
+import com.codetron.animeku.ui.screen.detail.DetailScreen
 import com.codetron.animeku.ui.screen.home.HomeScreen
 import com.codetron.animeku.ui.screen.search.SearchScreen
 import com.codetron.animeku.ui.screen.splash.SplashScreen
@@ -34,12 +36,18 @@ class MainActivity : ComponentActivity() {
                         SearchScreen(navController = navController)
                     }
 
-                    composable(ScreenPath.favorite) {
-                        FavoriteScreen(navController = navController)
-                    }
-
                     composable(ScreenPath.about) {
                         AboutScreen(navController = navController)
+                    }
+
+                    composable(
+                        ScreenPath.detailWithKeys,
+                        arguments = listOf(navArgument(ScreenPath.Keys.id) { type = NavType.IntType })
+                    ) { backStackEntry ->
+                        DetailScreen(
+                            navController = navController,
+                            id = backStackEntry.arguments?.getInt(ScreenPath.Keys.id)
+                        )
                     }
 
                 }
