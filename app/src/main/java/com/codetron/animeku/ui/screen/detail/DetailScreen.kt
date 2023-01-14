@@ -166,14 +166,14 @@ private fun BodySection(modifier: Modifier = Modifier, movie: MovieDetail) {
         )
 
         val dates = movie.aired.split(",")
-        val startDate = GeneralHelper.formatDateStr(dates[0])
-        val endDate = GeneralHelper.formatDateStr(dates[1])
+        val startDate = GeneralHelper.formatDateStr(dates[0]) ?: "-"
+        val endDate = GeneralHelper.formatDateStr(dates[1]) ?: "-"
         LabelItem(
             label = stringResource(id = R.string.label_aired),
             content = stringResource(
                 id = R.string.format_aired,
-                startDate.orEmpty(),
-                endDate.orEmpty()
+                startDate,
+                endDate
             ),
         )
 
